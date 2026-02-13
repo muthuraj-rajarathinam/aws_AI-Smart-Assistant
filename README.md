@@ -162,11 +162,14 @@ Which Store in DynamoDB
 
 Attach IAM policy:
   `Dynamodb:PutItem`
-
- -  Lambda 2: Check Leave Balance
+  
+ ---
+ 
+s -  Lambda 2: Check Leave Balance
  -  Function name: get_leave_details
 
 Responsibilities:
+
    `Query DynamoDB
     Return result`
 
