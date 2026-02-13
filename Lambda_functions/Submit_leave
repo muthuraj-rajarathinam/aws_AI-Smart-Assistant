@@ -1,0 +1,69 @@
+import json
+import boto3
+from datetime import datetime, date
+
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('VacationTable')
+
+def lambda_handler(event, context):
+    parameters = event.get('parameters', [])
+
+    employee_name = None
+    startDate = None
+    endDate = None
+
+    for param in parameters:
+        if param['name'] == 'employee_name':
+            employee_name = param['value']
+        elif param['name'] == 'startDate':
+            startDate = param['value']
+        elif param['name'] == 'endDate':
+            endDate = param['value']
+
+    # 1️⃣ If dates are provided → SAVE leave
+    if startDate and endDate:
+        table.put_item(
+            Item={
+                'employee_name': employee_name,
+                'startDate': startDate,
+                'endDate': endDate
+            }
+        )
+
+        message = f"Vacation leave submitted for {employee_name} from {startDate} to {endDate}."
+
+    # 2️⃣ If only employee_name → RETRIEVE leave
+    else:
+        response = table.get_item(
+            Key={'employee_name': employee_name}
+        )
+
+        if 'Item' not in response:
+            message = f"No vacation leave found for {employee_name}."
+        else:
+            item = response['Item']
+            start = datetime.strptime(item['startDate'], "%Y-%m-%d").date()
+            today = date.today()
+
+            days_remaining = (start - today).days
+
+            message = (
+                f"Your vacation starts on {item['startDate']} "
+                f"and ends on {item['endDate']}. "
+                f"That is {days_remaining} days from today."
+            )
+
+    return {
+        "response": {
+            "actionGroup": event['actionGroup'],
+            "function": event['function'],
+            "functionResponse": {
+                "responseBody": {
+                    "TEXT": {
+                        "body": message
+                    }
+                }
+            }
+        },
+        "messageVersion": event['messageVersion']
+    }
