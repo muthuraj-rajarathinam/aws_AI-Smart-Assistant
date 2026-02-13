@@ -114,6 +114,7 @@ Create index then Vector Fields
 * Leave policies
 * Benefits documents
 
+---
 
 ### Step 3️⃣: Create Bedrock Knowledge Base
 
