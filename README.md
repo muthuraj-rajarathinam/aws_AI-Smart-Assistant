@@ -4,7 +4,7 @@
 
 The HR team is currently overwhelmed.
 
-They handle more than 500 employee queries every single day — most of them related to policies, benefits, leave balances, and internal procedures. On top of that, responses are limited to business hours, and the team can only manage a certain number of conversations at a time.
+They handle more than 500 employee queries every single day  most of them related to policies, benefits, leave balances, and internal procedures. On top of that, responses are limited to business hours, and the team can only manage a certain number of conversations at a time.
 
 This project solves that problem by building an intelligent, scalable HR assistant using **Amazon Bedrock**. The assistant can:
 
@@ -82,7 +82,7 @@ Got it — here’s the **correct order from scratch**, short and clear 👇
 
 ## ✅ Step-by-Step 
 
-### Step 1: Create OpenSearch Serverless
+### Step 1️⃣: Create OpenSearch Serverless
 
 **Create Collection**
 
@@ -102,7 +102,7 @@ Create index then Vector Fields
 
 ---
 
-### Step 2: Create S3 Bucket & Upload HR Documents
+### Step 2️⃣: Create S3 Bucket & Upload HR Documents
 
 * Name: hr-bedrock-kb-docs
 * Disable public access
@@ -115,7 +115,7 @@ Create index then Vector Fields
 * Benefits documents
 
 
-### Step 3: Create Bedrock Knowledge Base
+### Step 3️⃣: Create Bedrock Knowledge Base
 
 Now OpenSearch will appear.
 
@@ -134,7 +134,7 @@ Now the assistant understands HR policies.
 
 ---
 
-### Step 4: Create the Amazon Bedrock Agent
+### Step 4️⃣: Create the Amazon Bedrock Agent
 
 1. Define the agent’s role and instructions.
 2. Attach the Knowledge Base.
@@ -145,7 +145,7 @@ The agent now knows how to answer policy-related questions.
 
 ---
 
-### Step 5: Create Lambda Functions
+### Step 5️⃣: Create Lambda Functions
 
 **You need two functions:**
 
@@ -179,7 +179,7 @@ Attach IAM policy:
 
 ---
 
-### Step 5: Create Action Groups
+### Step 6️⃣: Create Action Groups
 
 Action groups allow the agent to perform real operations.
 
@@ -203,7 +203,7 @@ Define the API schema so the agent knows:
 
 ---
 
-### Step 6: DynamoDB Setup
+### Step 7️⃣: DynamoDB Setup
 
 Create a table with:
 
@@ -213,7 +213,7 @@ This structure allows efficient storage and retrieval of leave records.
 
 ---
 
-### Step 7: Test the Agent
+### Step 8️⃣: Test the Agent
 
 Test scenarios:
 
