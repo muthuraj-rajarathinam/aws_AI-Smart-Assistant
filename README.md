@@ -40,11 +40,11 @@ The assistant can either:
 ### ✅ Smart HR Question Answering
 
 The assistant pulls answers directly from official HR handbook documents. Employees can ask questions like:
-
+`
 * “What is the maternity leave policy?”
 * “How many sick leaves do I get per year?”
-* “What is the reimbursement process?”
-
+* “What is the reimbursement process?"
+`
 Responses are accurate, contextual, and based only on uploaded HR documents.
 
 ---
@@ -163,9 +163,8 @@ Which Store in DynamoDB
 Attach IAM policy:
   `Dynamodb:PutItem`
 
-Lambda 2: Check Leave Balance
-
-Function name: get_leave_details
+ -  Lambda 2: Check Leave Balance
+ -  Function name: get_leave_details
 
 Responsibilities:
    `Query DynamoDB
